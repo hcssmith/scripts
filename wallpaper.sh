@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WDIR=/home/hsmith/Pictures/Wallpapers
+WDIR=/home/hsmith/Pictures/WallpapersAnime
 
 W=$(ls $WDIR | sort -R | tail -1)
 
