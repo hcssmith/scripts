@@ -9,5 +9,3 @@ install:
 	install app-launcher.sh ${HOME}/.local/bin/app-launcher.sh
 	install ip.sh ${HOME}/.local/bin/ip.sh
 	install vpnup.sh ${HOME}/.local/bin/vpnup.sh
-	install xrdb-apply.sh $(HOME)/.local/bin/xrdb-apply.sh
-	install slimit.sh $(HOME)/.local/bin/slimit.sh
