@@ -56,14 +56,24 @@ docs_menu() {
 	esac
 }
 
+resolve_usb_dev() {
+	if [ -b "/dev/sda1" ]; then
+		echo "/dev/sda1"
+	else
+		echo "/dev/sda"
+	fi
+}
+
 mount_usb() {
-	if findmnt /dev/sda &>/dev/null; then
+	dev=$(resolve_usb_dev)
+
+	if findmnt "$dev" &>/dev/null; then
 		notify-send "USB Already Mounted"
 		return
 	fi
 
-	res=$(udisksctl mount -b /dev/sda 2>&1 | awk -F ' ' '{print $4}')
-	action=$(dunstify -a "app-launcher" "/dev/sda Mounted" "$res" -A open,"Open Terminal")
+	res=$(udisksctl mount -b "$dev" 2>&1 | awk -F ' ' '{print $4}')
+	action=$(dunstify -a "app-launcher" "$dev Mounted" "$res" -A open,"Open Terminal")
 
 	if [ "$action" = "2" ]; then
 		st -d "$res" &
@@ -71,18 +81,20 @@ mount_usb() {
 }
 
 unmount_usb() {
-	if ! findmnt /dev/sda &>/dev/null; then
+	dev=$(resolve_usb_dev)
+
+	if ! findmnt "$dev" &>/dev/null; then
 		notify-send "No USB mounted"
 		return
 	fi
 
-	err=$(udisksctl unmount -b /dev/sda 2>&1)
+	err=$(udisksctl unmount -b "$dev" 2>&1)
 	if echo "$err" | grep -qi "busy"; then
 		notify-send "Unmount failed" "Device is in use"
 		return
 	fi
 
-	notify-send "/dev/sda Unmounted"
+	notify-send "$dev Unmounted"
 }
 
 case $opt in
