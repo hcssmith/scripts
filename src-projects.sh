@@ -12,9 +12,9 @@ sleep 0.1
 
 WID="$(cat /tmp/tabbed.wid)"
 
-st -t "nvim - $WORKDIR" -w "$WID" -d "$WORKDIR" -e nvim &
+st -t "nvim - $WORKDIR" -w "$WID" -d "$WORKDIR" -e cnvim &
 sleep 0.1
 
-st -t "OpenCode - $WORKDIR" -w "$WID" -d "$WORKDIR" -e opencode &
+st -t "run-pi - $WORKDIR" -w "$WID" -d "$WORKDIR" -e run-pi &
 
 wait "$TABPID"
