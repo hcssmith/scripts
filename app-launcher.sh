@@ -2,7 +2,7 @@
 browser=vivaldi
 browser_flags=--force-device-scale-factor=2
 
-menu=" Terminal\n Internet\n Media\n Development\n󱔘 Documentation\n System\n Mount USB\n Unmount USB\n󰀻 Run"
+menu=" Terminal\n Internet\n Media\n Development\n󱔘 Documentation\n System\n󱁤 Fixall\n Mount USB\n Unmount USB\n󰀻 Run"
 
 opt=$(echo -e "$menu" | dmenu "$@" -i -l 9 -p "Option")
 
@@ -115,6 +115,10 @@ case $opt in
 	;;
 " System")
 	system.sh "$@"
+	;;
+"󱁤 Fixall")
+	rm -f ~/.local/state/ip_provider_state
+	notify-send -u low "Fixall" "Cleanup complete"
 	;;
 "󰀻 Run")
 	dmenu_run "$@"
