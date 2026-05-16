@@ -11,3 +11,4 @@ install:
 	install vpnup.sh ${HOME}/.local/bin/vpnup.sh
 	install llm.sh ${HOME}/.local/bin/llm.sh
 	install wallpaper-chooser.sh ${HOME}/.local/bin/wallpaper-chooser.sh
+	install anythingllm-status.sh ${HOME}/.local/bin/anythingllm-status.sh
