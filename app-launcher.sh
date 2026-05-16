@@ -2,7 +2,7 @@
 browser=vivaldi
 browser_flags=--force-device-scale-factor=2
 
-menu=" Terminal\n Internet\n Media\n Development\n󱔘 Documentation\n System\n󱁤 Fixall\n Mount USB\n Unmount USB\n󰀻 Run"
+menu=" Terminal\n Internet\n Media\n Development\n󰭹 AnythingLLM\n󱔘 Documentation\n󰸉 Wallpapers\n System\n󱁤 Fixall\n Mount USB\n Unmount USB\n󰀻 Run"
 
 opt=$(echo -e "$menu" | dmenu "$@" -i -l 9 -p "Option")
 
@@ -110,9 +110,15 @@ case $opt in
 " Development")
 	src-projects.sh "$@"
 	;;
+"󰭹 AnythingLLM")
+	llm.sh
+	;;
 "󱔘 Documentation")
 	docs_menu "$@"
 	;;
+"󰸉 Wallpapers")
+  wallpaper-chooser.sh "$@"
+  ;;
 " System")
 	system.sh "$@"
 	;;
