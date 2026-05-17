@@ -9,6 +9,8 @@ case "$selected" in
   poweroff
   ;;
 "󰓛 Suspend")
+	xdotool key --clearmodifiers Super+Escape
+	xdotool key --clearmodifiers Super+b
   systemctl suspend
   ;;
 " Quit X")
