@@ -5,4 +5,4 @@ slock
 
 # After unlock, send key combos
 xdotool key super+b
-xdotool key super+1
+xdotool key super+Escape
